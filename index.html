@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect</title>
+    <script type="text/javascript">
+        function redirectToStore() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            var androidLink = 'https://play.google.com/store/apps/details?id=allgood.uz.nasiya&hl=ru';
+            var iosLink = 'https://apps.apple.com/us/app/allgood-nasiya/id6526487181';
+
+            if (/android/i.test(userAgent)) {
+                window.location.href = androidLink;
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = iosLink;
+            } else {
+                window.location.href = 'https://allgood.uz'; // Optional: URL for unsupported devices
+            }
+        }
+    </script>
+</head>
+<body onload="redirectToStore()">
+</body>
+</html>
